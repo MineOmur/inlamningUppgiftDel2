@@ -1,3 +1,5 @@
+package TextCounter;
+
 public class TextCounterMain {
 
     public static void main(String[] args) {

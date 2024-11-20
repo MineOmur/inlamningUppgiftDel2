@@ -1,16 +1,17 @@
+package TextCounter;
+
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 public class TextCounterTest {
 
     private TextCounter textCounter;
 
-    // Återställ TextCounter-objektet före varje test
+    // Återställ TextCounter.TextCounter-objektet före varje test
 
     @BeforeEach
     public void setUp() {
@@ -37,7 +38,7 @@ public class TextCounterTest {
         textCounter.readInput();
 
         // Låt oss anta att 3 rader är skrivna
-        assertEquals(3, textCounter.getTotalLines(), "Antalet rader är fel");
+        Assertions.assertEquals(3, textCounter.getTotalLines(), "Antalet rader är fel");
 
         // Efter testet återgår vi till det gamla System.in-värdet
         System.setIn(originalSystemIn);
@@ -60,7 +61,7 @@ public class TextCounterTest {
 
         // Rader: "Hej" (3 tecken), "Detta är en testrad." (20 tecken), "En sista rad." (13 tecken)
         //  Totalt: 3 + 20 + 13 = 36
-        assertEquals(36, textCounter.getTotalChars(), "Antalet tecken är fel");
+        Assertions.assertEquals(36, textCounter.getTotalChars(), "Antalet tecken är fel");
 
 //         Efter testning återgår den till det gamla System.in-värdet
         System.setIn(originalSystemIn);
@@ -81,8 +82,8 @@ public class TextCounterTest {
         textCounter.readInput();
 
         //När 'stop' skrivs ska 2 rader bearbetas och antalet tecken beräknas.
-        assertEquals(3, textCounter.getTotalLines(), "Antal rader efter 'stop' är fel");
-        assertEquals(36, textCounter.getTotalChars(), "Antalet tecken efter 'stop' är felaktigt");
+        Assertions.assertEquals(3, textCounter.getTotalLines(), "Antal rader efter 'stop' är fel");
+        Assertions.assertEquals(36, textCounter.getTotalChars(), "Antalet tecken efter 'stop' är felaktigt");
 
         //Efter testning återgår den till det gamla System.in-värdet
         System.setIn(originalSystemIn);

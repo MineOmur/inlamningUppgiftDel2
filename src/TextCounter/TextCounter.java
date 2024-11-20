@@ -1,3 +1,5 @@
+package TextCounter;
+
 import java.util.Scanner;
 
 public class TextCounter {
